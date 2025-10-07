@@ -1,0 +1,32 @@
+{
+  "name": "vpn-shop-server",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "format": "prettier --write .",
+    "lint": "eslint . --fix",
+    "check-types": "tsc --noEmit",
+    "db:push": "bunx drizzle-kit push",
+    "db:generate": "bunx drizzle-kit generate",
+    "db:migrate": "bunx drizzle-kit migrate",
+    "db:studio": "bunx drizzle-kit studio"
+  },
+  "dependencies": {
+    "@logtape/logtape": "^1.1.1",
+    "drizzle-orm": "^0.44.6",
+    "env-var": "^7.5.0",
+    "hono": "^4.9.10",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@0x32/prettier": "^1.0.0",
+    "@antfu/eslint-config": "^5.4.1",
+    "@logtape/pretty": "^1.1.1",
+    "@types/bun": "latest",
+    "@types/pg": "^8.15.5",
+    "bun-types": "^1.2.23",
+    "drizzle-kit": "^0.31.5",
+    "eslint": "^9.37.0",
+    "eslint-plugin-perfectionist": "^4.15.1",
+    "prettier": "^3.6.2"
+  }
+}
