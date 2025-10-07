@@ -1,14 +1,14 @@
 import { getLogger } from "@logtape/logtape";
 import { Hono } from "hono";
 
-import { loggerMiddleware } from "./middleware/logger";
+// import { loggerMiddleware } from "./middleware/logger";
 import { routes } from "./routes";
 
 const logger = getLogger(["hono"]);
 
 const app = new Hono();
 
-app.use("*", loggerMiddleware);
+// app.use("*", loggerMiddleware);
 
 app.route("/api", routes);
 

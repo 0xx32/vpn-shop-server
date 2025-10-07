@@ -8,7 +8,12 @@ import { usersTable } from "@/db/schemes/users";
 const logger = getLogger(["hono"]);
 
 export const getAllUsers = async () => {
-  return db.select().from(usersTable);
+  try {
+    return db.select().from(usersTable);
+  } catch (error) {
+    logger.error("Error getting users");
+    console.error(error);
+  }
 };
 
 export const createUser = async (dto: CreateUserDto) => {

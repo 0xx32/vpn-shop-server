@@ -4,6 +4,7 @@ import perfectionist from "eslint-plugin-perfectionist";
 export default antfu(
   {
     stylistic: false,
+    ignores: ["dist/", "node_modules/"],
   },
   {
     rules: {
