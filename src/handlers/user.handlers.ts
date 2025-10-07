@@ -1,19 +1,19 @@
 import type { Context } from "hono";
 
-import type { PostUserDto } from "@/types/user";
+import type { CreateUserDto } from "@/types/user";
 
 import { createUser, getAllUsers } from "@/services/user.service";
 
 export const getUsers = async (c: Context) => {
   const users = await getAllUsers();
 
-  return c.json(users);
+  return c.json({ users });
 };
 
 export const postUser = async (c: Context) => {
-  const body = await c.req.json<PostUserDto>();
+  const body = await c.req.json<CreateUserDto>();
 
-  const user = createUser({
+  const user =  await createUser({
     telegramID: body?.telegramID,
   });
 

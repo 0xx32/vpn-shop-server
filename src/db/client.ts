@@ -5,4 +5,6 @@ import { DATABASE_URL } from "@/config";
 
 export const client = postgres(DATABASE_URL);
 
-export const db = drizzle(client);
+export const db = drizzle(client, {
+  casing: "snake_case",
+});

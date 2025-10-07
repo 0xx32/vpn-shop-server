@@ -1,6 +1,6 @@
 import { getLogger } from "@logtape/logtape";
 
-import type { PostUserDto } from "@/types/user";
+import type { CreateUserDto } from "@/types/user";
 
 import { db } from "@/db/client";
 import { usersTable } from "@/db/schemes/users";
@@ -9,10 +9,9 @@ const logger = getLogger(["hono"]);
 
 export const getAllUsers = async () => {
   return db.select().from(usersTable);
+};
 
-}
-
-export const createUser = async (dto: PostUserDto) => {
+export const createUser = async (dto: CreateUserDto) => {
   try {
     const user = await db
       .insert(usersTable)
