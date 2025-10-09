@@ -1,3 +1,3 @@
 export interface CreateUserDto {
-  telegramID?: string;
+  telegramID: number;
 }
