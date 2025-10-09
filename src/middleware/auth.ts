@@ -5,6 +5,11 @@ import { getUserByID } from "@/services/user.service";
 
 export const authMiddleware = async (c: Context, next: Next) => {
   const authHeader = c.req.header("Authorization");
+
+  if (!authHeader) {
+    return c.json({ error: "Authorization header required" }, 401);
+  }
+
   const sessionId =
     authHeader?.replace("Bearer ", "") || c.req.query("session_id");
 
