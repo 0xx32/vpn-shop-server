@@ -2,6 +2,7 @@ import { relations } from "drizzle-orm";
 import { bigint, integer, pgTable, text } from "drizzle-orm/pg-core";
 
 import { paymentsTable } from "./payments";
+import { subscriptionsTable } from "./subscriptions";
 
 export const usersTable = pgTable("users_table", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
@@ -16,4 +17,5 @@ export type UserSelect = typeof usersTable.$inferSelect;
 
 export const usersRelations = relations(usersTable, ({ many }) => ({
   payments: many(paymentsTable),
+  subscriptions: many(subscriptionsTable),
 }));

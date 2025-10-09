@@ -4,7 +4,11 @@ import { validator } from "hono-openapi";
 import { createUser, getAllUsers } from "@/services/user.service";
 import { createUserDtoSchema } from "@/utils/constants/user";
 
+import { subscriptionRoutes } from "./subscriptions";
+
 const users = new Hono();
+
+users.route("/", subscriptionRoutes);
 
 // Get all users
 users.get("/", async (c) => {

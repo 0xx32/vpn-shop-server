@@ -16,6 +16,12 @@ export const config = {
   POSTGRES_HOST: env.get("POSTGRES_HOST").required().asString(),
 
   SESSION_LIFETIME: env.get("SESSION_LIFETIME").required().asInt(),
+
+  REMNAWAVE_PANEL_URL: env.get("REMNAWAVE_PANEL_URL").required().asString(),
+  REMNAWAVE_PANEL_API_KEY: env
+    .get("REMNAWAVE_PANEL_API_KEY")
+    .required()
+    .asString(),
 } as const;
 
 export const DATABASE_URL = `postgresql://${config.POSTGRES_USER}:${config.POSTGRES_PASSWORD}@${config.POSTGRES_HOST}:${config.POSTGRES_PORT}/${config.POSTGRES_DB}`;
